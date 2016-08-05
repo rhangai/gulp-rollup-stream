@@ -4,7 +4,8 @@
   "description": "Gulp rollup stream",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"preversion": "gulp && git add --force dist"
   },
   "author": "renanhangai <hangai.renan@gmail.com>",
   "license": "ISC",
@@ -14,5 +15,10 @@
     "rollup-plugin-memory": "^1.0.0",
     "through2": "^2.0.1",
     "vinyl-sourcemaps-apply": "^0.2.1"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.13.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2"
   }
 }
