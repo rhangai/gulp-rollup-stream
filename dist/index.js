@@ -30,7 +30,7 @@ function rollupStream(options) {
 		var thisOptions = {};
 		thisOptions.cache = cache;
 		thisOptions.entry = file.path;
-		thisOptions.plugins = [memory({ contents: file.contents.toString() })].concat(options.plugins).concat({ resolveId: resolveId });
+		thisOptions.plugins = [memory({ contents: file.contents.toString() })].concat(options.plugins || []).concat({ resolveId: resolveId });
 		thisOptions.external = options.external;
 
 		rollup.rollup(thisOptions).then(function (bundle) {
