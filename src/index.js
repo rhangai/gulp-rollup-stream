@@ -34,7 +34,7 @@ function rollupStream( options ) {
 		thisOptions.cache = cache;
 		thisOptions.entry = file.path;
 		thisOptions.plugins = [ memory({contents: file.contents.toString()}) ]
-			.concat( options.plugins )
+			.concat( options.plugins || [] )
 			.concat({ resolveId: resolveId });
 		thisOptions.external = options.external;
 
