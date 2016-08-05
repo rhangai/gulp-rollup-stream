@@ -1,6 +1,6 @@
 {
   "name": "gulp-rollup-stream",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Gulp rollup stream",
   "main": "dist/index.js",
   "scripts": {
