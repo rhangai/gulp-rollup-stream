@@ -7,5 +7,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "renanhangai <hangai.renan@gmail.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "extend": "^3.0.0",
+    "rollup": "^0.34.3",
+    "rollup-plugin-memory": "^1.0.0",
+    "through2": "^2.0.1",
+    "vinyl-sourcemaps-apply": "^0.2.1"
+  }
 }
