@@ -45,6 +45,7 @@ function rollupStream( options ) {
 				const generate = {
 					format:     options.format || 'cjs',
 					exports:    options.exports,
+					moduleId:   options.moduleId,
 					moduleName: options.moduleName,
 					globals:    options.globals,
 				};
