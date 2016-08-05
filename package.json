@@ -20,5 +20,17 @@
     "babel-preset-es2015": "^6.13.1",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renanhangai/gulp-rollup-stream.git"
+  },
+  "keywords": [
+    "gulp",
+    "rollup"
+  ],
+  "bugs": {
+    "url": "https://github.com/renanhangai/gulp-rollup-stream/issues"
+  },
+  "homepage": "https://github.com/renanhangai/gulp-rollup-stream#readme"
 }
