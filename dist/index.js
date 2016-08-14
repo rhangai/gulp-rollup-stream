@@ -12,7 +12,7 @@ function resolveJs() {
 	return path.extname(file) !== '.js' ? file + '.js' : file;
 }
 
-function rollupStream(options) {
+function rollupStream(options, bundleCb) {
 	options = options || {};
 	var cache = options.cache;
 
@@ -35,6 +35,8 @@ function rollupStream(options) {
 
 		rollup.rollup(thisOptions).then(function (bundle) {
 			cache = bundle;
+
+			if (bundleCb) bundleCb(bundle);
 
 			var generate = {
 				format: options.format || 'cjs',
