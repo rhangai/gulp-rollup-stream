@@ -14,7 +14,7 @@ function resolveJs() {
 }
 
 
-function rollupStream( options ) {
+function rollupStream( options, bundleCb ) {
 	options = options || {};
 	var cache = options.cache;
 	
@@ -41,6 +41,9 @@ function rollupStream( options ) {
 		rollup.rollup( thisOptions )
 			.then(function( bundle ) {
 				cache = bundle;
+
+				if ( bundleCb )
+					bundleCb( bundle );
 
 				const generate = {
 					format:     options.format || 'cjs',
