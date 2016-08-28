@@ -53,19 +53,21 @@ function rollupStream( options, bundleCb ) {
 					globals:    options.globals,
 				};
 				if ( file.sourceMap ) {
-					generate.sourceMap = true;
+					generate.sourceMap     = true;
+					generate.sourceMapFile = file.path;
 				}
 				const result = bundle.generate( generate );
 				
 				const newFile = options.clone ? file.clone() : file;
 				newFile.contents = new Buffer( result.code );
 				if ( newFile.sourceMap ) {
+					result.map.file = newFile.sourceMap.file || result.map.file;
 					applySourceMap( newFile, result.map );
 				}
 
 				callback( null, newFile );
 			}).catch(function( err ) {
-				console.log( err );
+				console.log( err.stack );
 				callback( err || new Error );
 			})
 		;
