@@ -47,18 +47,20 @@ function rollupStream(options, bundleCb) {
 			};
 			if (file.sourceMap) {
 				generate.sourceMap = true;
+				generate.sourceMapFile = file.path;
 			}
 			var result = bundle.generate(generate);
 
 			var newFile = options.clone ? file.clone() : file;
 			newFile.contents = new Buffer(result.code);
 			if (newFile.sourceMap) {
+				result.map.file = newFile.sourceMap.file || result.map.file;
 				applySourceMap(newFile, result.map);
 			}
 
 			callback(null, newFile);
 		}).catch(function (err) {
-			console.log(err);
+			console.log(err.stack);
 			callback(err || new Error());
 		});
 	});
