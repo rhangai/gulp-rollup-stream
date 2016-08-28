@@ -23,9 +23,16 @@ Usage
 Documentation
 -------------------------------------
 
-### rollup( options ) ###
+### rollup( options[, bundleCb] ) ###
 	
 Create a rollup-stream. Check [Rollup documenation](https://github.com/rollup/rollup/wiki/JavaScript-API) for more options
+
+- bundleCb: Everytime a new bundle this callback is called using: `bundleCb( bundle )`
+    Useful for cache: 
+```js
+var cache;
+function bundleCb( bundle ) { cache = bundle; }
+```
 
 - options.root: The path where to look at modules at first when using `import mod from 'my/module'.`
 It will look into `path.resolve( options.root,  'my/module' );`
