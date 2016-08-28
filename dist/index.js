@@ -60,7 +60,6 @@ function rollupStream(options, bundleCb) {
 
 			callback(null, newFile);
 		}).catch(function (err) {
-			console.log(err.stack);
 			callback(err || new Error());
 		});
 	});
