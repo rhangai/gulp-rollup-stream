@@ -6,11 +6,11 @@ const applySourceMap = require( 'vinyl-sourcemaps-apply' );
 const through2 = require( 'through2' );
 const extend = require( 'extend' );
 const path = require( 'path' );
-
+const fs = require( 'fs' );
 
 function resolveJs() {
 	const file = path.resolve.apply( path, arguments );
-	return ( path.extname( file ) !== '.js' ) ? file+'.js' : file;
+	return fs.existsSync( file ) ? file : fs.existsSync( file+'.js' ) ? file+'.js' : file;
 }
 
 
