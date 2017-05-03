@@ -30,7 +30,7 @@ function rollupStream( options, bundleCb ) {
 		return resolveJs( rootDir, id );
 	}
 	return through2.obj( function( file, enc, callback ) {
-		const thisOptions = {};
+		const thisOptions = Object.assign({}, options);
 		thisOptions.cache = cache;
 		thisOptions.entry = file.path;
 		thisOptions.plugins = [ memory({contents: file.contents.toString()}) ]
